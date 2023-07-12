@@ -122,4 +122,60 @@ async function addADepartment(){
       )
     })
 }
+async function addARole(){
+  inquirer.prompt([
+      {
+        type: "input",
+        name: "title",
+        message: "What is the title of this role?"
+      },
+      {
+        type: "input",
+        name: "salary",
+        message: "What is the salary of this role?"
+      },
+      {
+        type: "input",
+        name: "department_id",
+        message: "What is the department ID for this role?"
+      }
+  ]).then(({title, salary, department_id})=>{
+      db.query(`INSERT INTO role SET ?`, {title, salary, department_id}, (err,data)=>{
+        if(err) return console.log(err);
+        init();
+      });
+  });
+}
+
+async function addAEmployee(){
+  inquirer.prompt([
+      {
+        type: "input",
+        name: "first_name",
+        message: "What is the first name of this employee?"
+      },
+      {
+        type: "input",
+        name: "last_name",
+        message: "What is the last name of this employee?"
+      },
+      {
+        type: "input",
+        name: "title",
+        message: "what will be your new employee's title?"
+      }
+      {
+        type: "input",
+        name: "department_id",
+        message: "Which department will your new employee be in?"
+      },
+  ]).then(({title, salary, department_id})=>{
+      db.query(`INSERT INTO role SET ?`, {title, salary, department_id}, (err,data)=>{
+          if(err) {
+              console.log(err);
+          } 
+          init();
+      });
+  });
+}
 init()
