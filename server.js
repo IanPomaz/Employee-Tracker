@@ -178,4 +178,9 @@ async function addAEmployee(){
       });
   });
 }
+
+function quit(){
+  console.log("Exiting the Employee Tracker...")
+  process.exit();
+}
 init()
