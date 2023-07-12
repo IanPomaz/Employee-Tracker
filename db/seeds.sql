@@ -29,3 +29,4 @@ VALUES
     ( "Geordi", "La Forge", 2, 3),
     ( "Deanna", "Troi", 1, 6),
     ( "Beverly", "Crusher", 3, NULL);
+    

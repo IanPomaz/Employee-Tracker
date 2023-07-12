@@ -161,16 +161,16 @@ async function addAEmployee(){
       },
       {
         type: "input",
-        name: "title",
+        name: "role_id",
         message: "what will be your new employee's title?"
-      }
+      },
       {
         type: "input",
-        name: "department_id",
-        message: "Which department will your new employee be in?"
+        name: "manager_id",
+        message: "What is this employee's manager ID?"
       },
-  ]).then(({title, salary, department_id})=>{
-      db.query(`INSERT INTO role SET ?`, {title, salary, department_id}, (err,data)=>{
+  ]).then(({first_name, last_name, role_id, manager_id})=>{
+      db.query(`INSERT INTO employee SET ?`, {first_name, last_name, role_id, manager_id}, (err,data)=>{
           if(err) {
               console.log(err);
           } 
